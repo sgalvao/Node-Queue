@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "ts-node src/server.ts",
-    "queue": "ts-node src/App/Singletons/Queues.ts",
+    "queue": "ts-node src/app/libs/Queue.ts",
     "tsc": "tsc --init",
     "redis": "docker run --name redis -p 6379:6379 -d -t redis:alpine"
   },

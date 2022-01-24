@@ -1,7 +1,10 @@
+
+import Queue from "../libs/Queue";
+
 export default {
   async store(
-    req: { body: { name: any; email: any; password: any } },
-    res: { json: (arg0: { name: any; email: any; password: any }) => any }
+    req: { body: { name: string; email: string; password: string } },
+    res: { json: (arg0: { name: string; email: string; password: string }) => any }
   ) {
     const { name, email, password } = req.body;
 
@@ -11,10 +14,9 @@ export default {
       password,
     };
 
-    // adicionar usuario na fila de atendimento
+    await Queue.add({ user });
 
-    
 
-    return res.json(user);
+    console.log(await Queue.add({ user }));
   },
 };
